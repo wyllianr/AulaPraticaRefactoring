@@ -17,16 +17,13 @@ public class Customer {
         return _name;
     }
 
-    
     public String statement() {
-        return new TextStatement().statement(this);
+        return new TextStatement().value(this);
     }
 
-   
     public String htmlStatement() {
-        return new HtmlStatement().statement(this);
+        return new HtmlStatement().value(this);
     }
-
 
     public Enumeration getRentals() {
         return _rentals.elements();

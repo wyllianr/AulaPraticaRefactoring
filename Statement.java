@@ -1,16 +1,26 @@
+import java.util.Enumeration;
+
 public abstract class Statement {
-    
-    public String statement(Customer aCustomer) {
-        String result = getHeader(aCustomer);
+
+    public String value(Customer aCustomer) {
+        Enumeration rentals = aCustomer.getRentals();
+        String result = header(aCustomer);
         
-        result += getBody(aCustomer);
-        
-        result += getFooter(aCustomer);
-        
+        while (rentals.hasMoreElements()) {
+            Rental each = (Rental) rentals.nextElement();
+            result += eachRentalDetails(each);  
+        }
+
+        result += footer(aCustomer); 
         return result;
     }
 
-    protected abstract String getHeader(Customer aCustomer);
-    protected abstract String getBody(Customer aCustomer);
-    protected abstract String getFooter(Customer aCustomer);
+   
+    protected abstract String header(Customer aCustomer);
+
+    
+    protected abstract String eachRentalDetails(Rental each);
+
+    
+    protected abstract String footer(Customer aCustomer);
 }
