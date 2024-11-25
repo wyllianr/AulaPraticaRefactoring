@@ -11,6 +11,6 @@ public class NewReleasePrice extends Price {
 
     @Override
     public int getFrequentRenterPoints(int daysRented) {
-        return (daysRented > 1) ? 2 : 1; // Bônus para lançamentos
+        return (daysRented > 1) ? 2 : 1; 
     }
 }
