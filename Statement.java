@@ -1,13 +1,16 @@
 public abstract class Statement {
-
-    public String generateStatement(Customer customer) {
-        String result = header(customer);
-        result += body(customer);
-        result += footer(customer);
+    
+    public String statement(Customer aCustomer) {
+        String result = getHeader(aCustomer);
+        
+        result += getBody(aCustomer);
+        
+        result += getFooter(aCustomer);
+        
         return result;
     }
 
-    protected abstract String header(Customer customer);
-    protected abstract String body(Customer customer);
-    protected abstract String footer(Customer customer);
+    protected abstract String getHeader(Customer aCustomer);
+    protected abstract String getBody(Customer aCustomer);
+    protected abstract String getFooter(Customer aCustomer);
 }

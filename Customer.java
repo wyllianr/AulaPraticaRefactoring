@@ -17,6 +17,17 @@ public class Customer {
         return _name;
     }
 
+    
+    public String statement() {
+        return new TextStatement().statement(this);
+    }
+
+   
+    public String htmlStatement() {
+        return new HtmlStatement().statement(this);
+    }
+
+
     public Enumeration getRentals() {
         return _rentals.elements();
     }
@@ -39,17 +50,5 @@ public class Customer {
             result += each.getFrequentRenterPoints();
         }
         return result;
-    }
-
-    // Método para retornar a fatura no formato texto
-    public String statement() {
-        Statement statement = new TextStatement();
-        return statement.generateStatement(this);
-    }
-
-    // Método para retornar a fatura no formato HTML
-    public String htmlStatement() {
-        Statement statement = new HtmlStatement();
-        return statement.generateStatement(this);
     }
 }
