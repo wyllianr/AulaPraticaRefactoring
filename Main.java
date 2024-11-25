@@ -10,6 +10,10 @@ public class Main {
 
        
         System.out.println("Charge for " + movie1.getTitle() + ": " + movie1.getCharge(4)); 
+        System.out.println("Frequent Renter Points for " + movie1.getTitle() + ": " + movie1.getFrequentRenterPoints(4));
+
+        
         System.out.println("Charge for " + movie2.getTitle() + ": " + movie2.getCharge(3)); 
+        System.out.println("Frequent Renter Points for " + movie2.getTitle() + ": " + movie2.getFrequentRenterPoints(3)); 
     }
 }

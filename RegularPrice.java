@@ -2,15 +2,20 @@ public class RegularPrice extends Price {
 
     @Override
     public int getPriceCode() {
-        return Movie.REGULAR; 
+        return Movie.REGULAR;
     }
 
     @Override
     public double getCharge(int daysRented) {
-        double result = 2; 
+        double amount = 2;
         if (daysRented > 2) {
-            result += (daysRented - 2) * 1.5; 
+            amount += (daysRented - 2) * 1.5;
         }
-        return result;
+        return amount;
+    }
+
+    @Override
+    public int getFrequentRenterPoints(int daysRented) {
+        return super.getFrequentRenterPoints(daysRented); 
     }
 }
