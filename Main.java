@@ -1,19 +1,28 @@
 public class Main {
     public static void main(String[] args) {
-      
-        Movie movie1 = new Movie("NEMO", Movie.CHILDRENS);
-        Movie movie2 = new Movie("Wolverine", Movie.REGULAR);
-
-        
-        movie1.setPriceCode(Movie.CHILDRENS);
-        movie2.setPriceCode(Movie.REGULAR);
 
        
-        System.out.println("Charge for " + movie1.getTitle() + ": " + movie1.getCharge(4)); 
-        System.out.println("Frequent Renter Points for " + movie1.getTitle() + ": " + movie1.getFrequentRenterPoints(4));
+        Customer customer = new Customer("GABREIL");
+
+       
+        Movie movie1 = new Movie("NEMO", Movie.REGULAR);
+        Rental rental1 = new Rental(movie1, 3);
+        customer.addRental(rental1);
+
+        Movie movie2 = new Movie("WOLVERINE", Movie.CHILDRENS);
+        Rental rental2 = new Rental(movie2, 5);
+        customer.addRental(rental2);
+
+        Movie movie3 = new Movie("DRACULA", Movie.NEW_RELEASE);
+        Rental rental3 = new Rental(movie3, 2);
+        customer.addRental(rental3);
 
         
-        System.out.println("Charge for " + movie2.getTitle() + ": " + movie2.getCharge(3)); 
-        System.out.println("Frequent Renter Points for " + movie2.getTitle() + ": " + movie2.getFrequentRenterPoints(3)); 
+        System.out.println("Statement (Text format):");
+        System.out.println(customer.statement());
+
+        
+        System.out.println("\nStatement (HTML format):");
+        System.out.println(customer.htmlStatement());
     }
 }
